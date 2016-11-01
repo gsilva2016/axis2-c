@@ -19,7 +19,9 @@
 
 #include "ssl_utils.h"
 #include <openssl/err.h>
-BIO *bio_err = 0;
+#include <stdbool.h>
+
+bool is_global_init_complete = false;
 
 static int
 password_cb(
@@ -52,14 +54,15 @@ axis2_ssl_utils_initialize_ctx(
         return NULL;
     }
 
-    if (!bio_err)
+    if (!is_global_init_complete)
     {
         /* Global system initialization */
         SSL_library_init();
         SSL_load_error_strings();
-
-        /* An error write context */
-        bio_err = BIO_new_fp(stderr, BIO_NOCLOSE);
+       
+	   AXIS2_LOG_INFO(env->log, "[ssl client] global system initialization completed.");
+	   
+	   is_global_init_complete = true;
     }
 
     /* Create our context */
