@@ -383,7 +383,6 @@ axiom_data_handler_write_to(
     if (data_handler->file_name)
     {
         FILE *f = NULL;
-        int count = 0;
 
         f = fopen(data_handler->file_name, "wb");
         if (!f)
@@ -393,7 +392,7 @@ axiom_data_handler_write_to(
             return AXIS2_FAILURE;
         }
 
-        count = (int)fwrite(data_handler->buffer, 1,
+        fwrite(data_handler->buffer, 1,
             data_handler->buffer_len, f);
         /* The count lies within the int range */
 

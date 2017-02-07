@@ -106,8 +106,7 @@ symmetric_binding_process_alternatives(
     neethi_operator_t *operator = NULL;
     axutil_array_list_t *arraylist = NULL;
     neethi_assertion_t *assertion = NULL;
-    neethi_assertion_type_t type;
-    void *value = NULL;
+    neethi_assertion_type_t type;    
     rp_binding_commons_t *commons = NULL;
     rp_symmetric_asymmetric_binding_commons_t *as_commons = NULL;
 
@@ -123,7 +122,7 @@ symmetric_binding_process_alternatives(
                                                               i);
         assertion =
             (neethi_assertion_t *) neethi_operator_get_value(operator, env);
-        value = neethi_assertion_get_value(assertion, env);
+        neethi_assertion_get_value(assertion, env);
         type = neethi_assertion_get_type(assertion, env);
 
         if (type == ASSERTION_TYPE_PROTECTION_TOKEN)

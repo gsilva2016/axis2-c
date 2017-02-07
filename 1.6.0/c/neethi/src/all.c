@@ -149,15 +149,13 @@ neethi_all_serialize(
 {
 
     axiom_node_t *all_node = NULL;
-    axiom_element_t *all_ele = NULL;
     axiom_namespace_t *policy_ns = NULL;
     axutil_array_list_t *components = NULL;
     axis2_status_t status = AXIS2_FAILURE;
 
     policy_ns = axiom_namespace_create(env, NEETHI_NAMESPACE, NEETHI_PREFIX);
 
-    all_ele =
-        axiom_element_create(env, parent, NEETHI_ALL, policy_ns, &all_node);
+    axiom_element_create(env, parent, NEETHI_ALL, policy_ns, &all_node);
     if (!all_node)
     {
         return AXIS2_FAILURE;

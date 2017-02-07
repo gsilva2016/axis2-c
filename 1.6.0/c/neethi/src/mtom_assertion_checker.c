@@ -35,8 +35,7 @@ neethi_is_mtom_required(
     neethi_policy_t *normalized_policy = NULL;
     neethi_operator_t *operator = NULL;
     neethi_assertion_t *assertion = NULL;
-    neethi_assertion_type_t type;
-    void *value = NULL;
+    neethi_assertion_type_t type;   
     int i = 0;
 
     normalized_policy = neethi_engine_get_normalize(env, AXIS2_FALSE, policy);
@@ -58,7 +57,7 @@ neethi_is_mtom_required(
                                                               i);
         assertion =
             (neethi_assertion_t *) neethi_operator_get_value(operator, env);
-        value = neethi_assertion_get_value(assertion, env);
+        neethi_assertion_get_value(assertion, env);
         type = neethi_assertion_get_type(assertion, env);
 
         /*if (value)

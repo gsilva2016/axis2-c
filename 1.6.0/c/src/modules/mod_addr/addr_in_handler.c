@@ -472,19 +472,8 @@ axis2_addr_in_extract_addr_params(
             axis2_char_t *address = NULL;
             axutil_qname_t *rqn = NULL;
             axiom_attribute_t *relationship_type = NULL;
-            const axis2_char_t *relationship_type_default_value = NULL;
             const axis2_char_t *relationship_type_value = NULL;
             axis2_relates_to_t *relates_to = NULL;
-            if (!axutil_strcmp(AXIS2_WSA_NAMESPACE_SUBMISSION, addr_ns_str))
-            {
-                relationship_type_default_value =
-                    AXIS2_WSA_RELATES_TO_RELATIONSHIP_TYPE_DEFAULT_VALUE_SUBMISSION;
-            }
-            else
-            {
-                relationship_type_default_value =
-                    AXIS2_WSA_ANONYMOUS_URL_SUBMISSION;
-            }
             rqn =
                 axutil_qname_create(env, AXIS2_WSA_RELATES_TO_RELATIONSHIP_TYPE,
                                     NULL, NULL);
@@ -594,11 +583,10 @@ axis2_addr_in_extract_epr_information(
                        (ref_param_iter, env))
                 {
                     axiom_node_t *om_node = NULL;
-                    axiom_element_t *om_ele = NULL;
+
                     om_node =
                         AXIOM_CHILD_ELEMENT_ITERATOR_NEXT(ref_param_iter, env);
-                    om_ele =
-                        (axiom_element_t *) axiom_node_get_data_element(om_node,
+		    axiom_node_get_data_element(om_node,
                                                                         env);
                     axis2_endpoint_ref_add_ref_param(endpoint_ref, env, om_node);                    
                 }

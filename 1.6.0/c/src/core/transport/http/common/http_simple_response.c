@@ -566,7 +566,7 @@ axis2_http_simple_response_get_body_bytes(
     while (loop_state)
     {
         int read = 0;
-        int write = 0;
+        
         char buf[AXIS2_HTTP_SIMPLE_RESPONSE_READ_SIZE];
 
         read =
@@ -576,7 +576,7 @@ axis2_http_simple_response_get_body_bytes(
         {
             break;
         }
-        write = axutil_stream_write(tmp_stream, env, buf, read);
+        axutil_stream_write(tmp_stream, env, buf, read);
         if (read < (AXIS2_HTTP_SIMPLE_RESPONSE_READ_SIZE - 1))
         {
             break;

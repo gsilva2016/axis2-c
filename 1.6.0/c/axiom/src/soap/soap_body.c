@@ -248,7 +248,6 @@ axiom_soap_body_build(
 {
     int status = AXIS2_SUCCESS;
     axiom_node_t *xop_node = NULL;    
-    axis2_bool_t is_replaced = AXIS2_FALSE;
     axiom_element_t *xop_element = NULL;
 
                                                                                                                                     
@@ -263,7 +262,7 @@ axiom_soap_body_build(
                 xop_node, env);
             if(xop_element)
             {
-                is_replaced = axiom_soap_builder_replace_xop(soap_body->soap_builder, 
+                axiom_soap_builder_replace_xop(soap_body->soap_builder, 
                     env, xop_node, xop_element);
             }
         }    

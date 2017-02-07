@@ -2151,13 +2151,12 @@ axis2_http_worker_set_transport_out_config(
     const axutil_env_t * env,
     axis2_conf_ctx_t * conf_ctx,
     axis2_http_simple_response_t * simple_response)
-{
-    axis2_conf_t *config = NULL;
+{    
 
     AXIS2_PARAM_CHECK(env->error, conf_ctx, AXIS2_FAILURE);
     AXIS2_PARAM_CHECK(env->error, simple_response, AXIS2_FAILURE);
 
-    config = axis2_conf_ctx_get_conf(conf_ctx, env);
+    axis2_conf_ctx_get_conf(conf_ctx, env);
 
     return AXIS2_SUCCESS;
 }

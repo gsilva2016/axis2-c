@@ -431,7 +431,6 @@ axis2_conf_builder_process_disp_order(
     }
     while (qname_itr_has_next)
     {
-        axiom_node_t *disp_node = NULL;
         axiom_element_t *disp_element = NULL;
         axiom_attribute_t *disp_att = NULL;
         axis2_char_t *class_name = NULL;
@@ -444,8 +443,7 @@ axis2_conf_builder_process_disp_order(
         axis2_handler_t *handler = NULL;
 
         found_disp = AXIS2_TRUE;
-        disp_node = (axiom_node_t *)
-            axiom_children_qname_iterator_next(disps, env);
+        axiom_children_qname_iterator_next(disps, env);
         class_qname = axutil_qname_create(env, AXIS2_CLASSNAME, NULL, NULL);
         disp_att = axiom_element_get_attribute(disp_element, env, class_qname);
         axutil_qname_free(class_qname, env);

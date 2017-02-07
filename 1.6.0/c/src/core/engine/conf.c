@@ -578,8 +578,7 @@ axis2_conf_add_svc_grp(
     axutil_hash_t *svcs = NULL;
     axutil_hash_index_t *index_i = NULL;
     axis2_char_t *svc_name = NULL;
-    const axis2_char_t *svc_grp_name = NULL;
-    int k = 0;
+    const axis2_char_t *svc_grp_name = NULL;    
 
     AXIS2_PARAM_CHECK(env->error, svc_grp, AXIS2_FAILURE);
 
@@ -594,7 +593,7 @@ axis2_conf_add_svc_grp(
         }
     }
 
-    k = axutil_hash_count(svcs);
+    axutil_hash_count(svcs);
     index_i = axutil_hash_first(svcs, env);
     while (index_i)
     {

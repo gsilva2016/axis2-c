@@ -136,8 +136,7 @@ om_node_serialize(
 {
 
     axiom_output_t *om_output = NULL;
-    axiom_xml_writer_t *writer = NULL;
-    axis2_char_t *output_buffer = NULL;
+    axiom_xml_writer_t *writer = NULL;    
     axis2_status_t status = AXIS2_FAILURE;
 
     writer = axiom_xml_writer_create_for_memory(env, NULL, AXIS2_TRUE, 0,
@@ -155,7 +154,7 @@ om_node_serialize(
     /* end serializing stuff */
 
     /*axiom_node_free_tree(node1, environment); */
-    output_buffer = (axis2_char_t *) axiom_xml_writer_get_xml(writer, env);
+    axiom_xml_writer_get_xml(writer, env);
 
     printf("\nend test_om_serialize\n");
 

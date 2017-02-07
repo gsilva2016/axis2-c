@@ -417,7 +417,6 @@ axis2_http_client_send(
 
     if(client->doing_mtom)
     {
-        axis2_status_t status = AXIS2_SUCCESS;
         axutil_http_chunked_stream_t *chunked_stream = NULL;
         
         /* If the callback name is not there, then we will check whether there 
@@ -441,7 +440,7 @@ axis2_http_client_send(
 
         /* This method will write the Attachment + data to the wire */
 
-        status = axis2_http_transport_utils_send_mtom_message(chunked_stream, env, 
+        axis2_http_transport_utils_send_mtom_message(chunked_stream, env, 
                 client->mime_parts, client->mtom_sending_callback_name);      
 
         axutil_http_chunked_stream_free(chunked_stream, env);

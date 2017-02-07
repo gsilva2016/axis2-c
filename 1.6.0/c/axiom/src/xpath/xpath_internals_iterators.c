@@ -34,8 +34,7 @@ int axiom_xpath_child_iterator(
     axiom_xpath_operation_t * node_test_op;
     axiom_node_t *cur = NULL;
     axiom_node_t *context_node = NULL;
-    /* For streaming */
-    axiom_node_t *prev = NULL;
+    /* For streaming */    
     /*axiom_xpath_operation_t * next_operation = NULL;*/
 
     AXIOM_XPATH_ITERATOR_INITIALIZE;
@@ -45,7 +44,6 @@ int axiom_xpath_child_iterator(
     {
         n_nodes = 0;
         context->node = cur;
-        prev = cur;
         cur = axiom_node_get_next_sibling(cur, context->env);
         if (axiom_xpath_node_test_match(
                     context, (axiom_xpath_node_test_t *)node_test_op->par1))

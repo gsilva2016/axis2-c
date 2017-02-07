@@ -55,7 +55,6 @@ tcpmon_util_format_as_xml(
         int c;
         int tab_pos = 0;
         int has_value = 0;
-        int has_space = 0;
         int start_ele = 0;
         int prev_case = 0;
         int buffer_size = 0;
@@ -145,7 +144,6 @@ tcpmon_util_format_as_xml(
                     prev_case = START_ELEMENT;
 
                     has_value = 0;
-                    has_space = 0;
 
                     if (start_ele != 0)
                         tcpmon_util_strcat(out, "\n", &buffer_size, env);
@@ -257,7 +255,6 @@ tcpmon_util_format_as_xml(
                     prev_case = EMPTY_ELEMENT;
 
                     has_value = 0;
-                    has_space = 0;
 
                     if (start_ele != 0)
                         tcpmon_util_strcat(out, "\n", &buffer_size, env);
@@ -569,8 +566,7 @@ tcpmon_util_read_current_stream(
     axis2_char_t *header_ptr = NULL;
     axis2_char_t *body_ptr = NULL;
     int header_found = 0;
-    int header_just_finished = 0;
-    int read = 0;
+    int header_just_finished = 0;  
     int header_width = 0;
     int current_line_offset = 0;
     int mtom_optimized = 0;
@@ -590,7 +586,7 @@ tcpmon_util_read_current_stream(
         buffer = AXIS2_REALLOC(env->allocator, buffer,
                                sizeof(axis2_char_t) * (read_size + 1));
         *(buffer + read_size) = '\0';
-        read = axutil_stream_read(stream, env, buffer + read_size, 1);
+        axutil_stream_read(stream, env, buffer + read_size, 1);
 
         if (header_just_finished)
         {

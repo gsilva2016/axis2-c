@@ -59,7 +59,6 @@ axutil_uuid_gen_v1(
     )
 {
     struct timeval time_now;
-    struct timeval tv;
     unsigned long long time_val;
     unsigned long long time_val2;
     unsigned short int clck = 0;
@@ -98,9 +97,7 @@ axutil_uuid_gen_v1(
     {
         axutil_uuid_static.time_seq++;
     }
-    /* sleep for 1000ns (1us) */
-    tv.tv_sec = 0;
-    tv.tv_usec = 1;
+
     /*
        The following select causes severe performance problems. 
        Hence commenting out. I am not sure why this is required. - Samisa.    

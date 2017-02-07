@@ -401,7 +401,6 @@ neethi_assertion_serialize(
     const axutil_env_t *env)
 {
     axiom_namespace_t *namespace = NULL;
-    axiom_element_t *element = NULL;
     axiom_node_t *node = NULL;
     axis2_char_t *localname = NULL;
 
@@ -409,7 +408,7 @@ neethi_assertion_serialize(
         axiom_element_get_namespace(assertion->element, env, assertion->node);
     localname = axiom_element_get_localname(assertion->element, env);
 
-    element = axiom_element_create(env, parent, localname, namespace, &node);
+    axiom_element_create(env, parent, localname, namespace, &node);
 
     if (!node)
     {

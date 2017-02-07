@@ -69,12 +69,10 @@ axis2_raw_xml_in_out_msg_recv_invoke_business_logic_sync(
     axis2_op_ctx_t *op_ctx = NULL;
     axis2_op_t *op_desc = NULL;
     const axis2_char_t *style = NULL;
-    axiom_node_t *om_node = NULL;
-    axiom_element_t *om_element = NULL;
+    axiom_node_t *om_node = NULL;    
     axis2_char_t *local_name = NULL;
     axiom_node_t *result_node = NULL;
-    axiom_node_t *body_content_node = NULL;
-    axiom_element_t *body_content_element = NULL;
+    axiom_node_t *body_content_node = NULL;    
     axiom_soap_envelope_t *default_envelope = NULL;
     axiom_soap_body_t *out_body = NULL;
     axiom_soap_header_t *out_header = NULL;
@@ -132,7 +130,7 @@ axis2_raw_xml_in_out_msg_recv_invoke_business_logic_sync(
             envelope = axis2_msg_ctx_get_soap_envelope(msg_ctx, env);
             body = axiom_soap_envelope_get_body(envelope, env);
             om_node = axiom_soap_body_get_base_node(body, env);
-            om_element = axiom_node_get_data_element(om_node, env);
+            axiom_node_get_data_element(om_node, env);
             om_node = axiom_node_get_first_element(om_node, env);
         }
         else if (0 == axutil_strcmp(AXIS2_STYLE_RPC, style))
@@ -177,7 +175,7 @@ axis2_raw_xml_in_out_msg_recv_invoke_business_logic_sync(
                     if (matches)
                     {
                         om_node = axiom_node_get_first_child(op_node, env);
-                        om_element = axiom_node_get_data_element(om_node, env);
+                        axiom_node_get_data_element(om_node, env);
                     }
                     else
                     {
@@ -224,14 +222,13 @@ axis2_raw_xml_in_out_msg_recv_invoke_business_logic_sync(
                 }
                 else
                 {
-                    body_content_element =
-                        axiom_element_create(env, NULL, res_name, ns, &body_content_node);
+                    axiom_element_create(env, NULL, res_name, ns, &body_content_node);
                     axiom_node_add_child(body_content_node, env, result_node);
                 }
             }
             else
             {
-                body_content_node = result_node;
+                /* body_content_node = result_node; */
             }
         }
         else

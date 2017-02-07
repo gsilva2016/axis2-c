@@ -333,7 +333,7 @@ axis2_repos_listener_search(
         axis2_status_t status_code = AXIS2_FAILURE;
 
         status_code = AXIS2_ERROR_GET_STATUS_CODE(env->error);
-        if (AXIS2_SUCCESS != status)
+        if (AXIS2_SUCCESS != status_code) /* Bugfix */
         {
             return status;
         }

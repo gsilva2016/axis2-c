@@ -639,8 +639,7 @@ AXIS2_EXTERN axis2_status_t AXIS2_CALL
     AXIS2_ENV_CHECK(env, NULL);
 
     if (om_output->do_optimize)
-    {
-        axis2_char_t *root_content_id = NULL;
+    {      
         axis2_char_t *buffer = NULL;
 
         /* Extracting the soap part */
@@ -661,7 +660,7 @@ AXIS2_EXTERN axis2_status_t AXIS2_CALL
         om_output->mime_boundry = axiom_output_get_mime_boundry(om_output, env);
         
         /* This is also created for attachments*/
-        root_content_id = axiom_output_get_root_content_id(om_output, env);
+        axiom_output_get_root_content_id(om_output, env);
         
         /* different parts of the message is added according to their order
          * to an arraylist */

@@ -77,17 +77,16 @@ system_exit(
     axutil_env_t * env,
     int status)
 {
-    axutil_allocator_t *allocator = NULL;
     if (server)
     {
         axis2_transport_receiver_free(server, system_env);
     }
     if (env)
     {
-        allocator = env->allocator;
+
         axutil_env_free(env);
     }
-    /*axutil_allocator_free(allocator); */
+
     axiom_xml_reader_cleanup();
     exit(status);
 }

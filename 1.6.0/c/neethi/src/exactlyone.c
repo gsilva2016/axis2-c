@@ -150,15 +150,13 @@ neethi_exactlyone_serialize(
 {
 
     axiom_node_t *exactlyone_node = NULL;
-    axiom_element_t *exactlyone_ele = NULL;
     axiom_namespace_t *policy_ns = NULL;
     axutil_array_list_t *components = NULL;
     axis2_status_t status = AXIS2_FAILURE;
 
     policy_ns = axiom_namespace_create(env, NEETHI_NAMESPACE, NEETHI_PREFIX);
 
-    exactlyone_ele =
-        axiom_element_create(env, parent, NEETHI_EXACTLYONE, policy_ns,
+    axiom_element_create(env, parent, NEETHI_EXACTLYONE, policy_ns,
                              &exactlyone_node);
     if (!exactlyone_node)
     {

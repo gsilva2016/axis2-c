@@ -1475,7 +1475,7 @@ axis2_http_sender_get_header_info (axis2_http_sender_t * sender,
     int *content_length = NULL;
     axutil_property_t *property = NULL;
     axis2_char_t *content_type = NULL;
-    int status_code = 0;
+    /* int status_code = 0; */
 
     AXIS2_PARAM_CHECK (env->error, msg_ctx, AXIS2_FAILURE);
     AXIS2_PARAM_CHECK (env->error, response, AXIS2_FAILURE);
@@ -1577,7 +1577,7 @@ axis2_http_sender_get_header_info (axis2_http_sender_t * sender,
                                     AXIS2_HTTP_HEADER_CONTENT_LENGTH, property);
     }
 
-    status_code = axis2_http_simple_response_get_status_code (response, env);
+    axis2_http_simple_response_get_status_code (response, env); /* todo: why not return the status code?? */
     return AXIS2_SUCCESS;
 }
 
