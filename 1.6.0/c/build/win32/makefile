@@ -163,8 +163,8 @@ LDFLAGS = /NOLOGO /WX /LIBPATH:$(AXIS2_LIBS) /LIBPATH:$(LIBXML2_BIN_DIR)\lib \
 LIBS =  Rpcrt4.lib Ws2_32.lib
 
 !if "$(ENABLE_SSL)" == "1"
-LDFLAGS = $(LDFLAGS) /LIBPATH:$(OPENSSL_BIN_DIR)\lib\VC
-LIBS = $(LIBS) libeay32MD.lib ssleay32MD.lib
+LDFLAGS = $(LDFLAGS) /LIBPATH:$(OPENSSL_BIN_DIR)\lib
+LIBS = $(LIBS) libeay32.lib ssleay32.lib
 !endif
 
 !if "$(ENABLE_LIBCURL)" == "1"
