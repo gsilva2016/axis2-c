@@ -39,7 +39,7 @@ ZLIB_BIN_DIR= E:\zlib-1.2.3.win32
 #
 # openssl  binary location
 # required if ENABLE_SSL = 1
-OPENSSL_BIN_DIR = %OPENSSL_BIN_DIR%
+OPENSSL_BIN_DIR = $(OPENSSL_BIN_DIR)
 #
 # libcurl binary location, only required if libcurl transport is enabled
 LIBCURL_BIN_DIR = E:\libcurl-7.15.1-msvc-win32-ssl-0.9.8a-zlib-1.2.3
