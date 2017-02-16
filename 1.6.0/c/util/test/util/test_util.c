@@ -64,15 +64,7 @@ test_hash_get(
     char *key2 = "key2";
     char *key3 = "key3";
     char *key4 = "key4";
-    int cnt = 0;
-    axis2_char_t ***rettt = NULL;
-    axis2_status_t stat = AXIS2_FAILURE;
-    stat = axutil_parse_rest_url_for_params(env, "ech{a}tring", "/echoString?text=Hello%20World%21", &cnt, &rettt);
-    stat = axutil_parse_rest_url_for_params(env, "{a}ny/mor/sum", "echoStringmany/mor/sum", &cnt, &rettt);
-/*    rettt = axutil_parse_rest_url_for_params(env, "echoString/{a}re/{b}?", "/echoString/more/sum/?");
-    rettt = axutil_parse_rest_url_for_params(env, "/ech{c}tring{a}more/{b}/", "/echoStringma/nymore/sum?");
-    rettt = axutil_parse_rest_url_for_params(env, "echoString/{a}/more/{b}?{c}", "echoString/many/more/sum/");
-    rettt = axutil_parse_rest_url_for_params(env, "echoString/{a}/more/{b}/?", "echoString/many/more/sum/?test=");*/
+   
 
     a1 = (a *) AXIS2_MALLOC(env->allocator, sizeof(a));
     a2 = (a *) AXIS2_MALLOC(env->allocator, sizeof(a));
@@ -180,7 +172,7 @@ test_array_list(
 {
     axutil_array_list_t *al;
     a *entry = NULL;
-    int size;
+
 
     al = axutil_array_list_create(env, 1);
     printf("list size %d\n", axutil_array_list_size(al, env));
@@ -219,7 +211,8 @@ test_array_list(
 
     entry = (a *) axutil_array_list_get(al, env, 2);
     printf("entry->value:%s\n", entry->value);
-    size = axutil_array_list_size(al, env);
+
+    axutil_array_list_size(al, env);
     printf("list size %d\n", axutil_array_list_size(al, env));
 
 }
